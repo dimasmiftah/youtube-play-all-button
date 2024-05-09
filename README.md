@@ -2,7 +2,7 @@
 
 This extension will add 2 buttons next to the subscribe button.
 
-1. **Go to Playlist** for open the playlist of all the channel's video
+1. **Go to Playlist** to open the playlist of all the channel's video
 1. **Play All** same thing but directly playing the first video
 
 ## Screenshots
