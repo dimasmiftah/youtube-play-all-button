@@ -17,11 +17,12 @@ Dark
 
 ## Installation
 
-The extension is currently undergoing review on the Chrome Web Store.
+Install from the **Chrome Web Store**
 
-![CleanShot 2024-05-09 at 13 08 45](https://github.com/dimasmiftah/youtube-play-all-button/assets/32232332/f4ed82b6-001e-4f31-895b-498f584776db)
+https://chromewebstore.google.com/detail/youtube-play-all-button/oggeeaaeahmkkmaaldpaboiagfbjhnhl
 
-In the meantime, you can install it using developer mode.
+
+Alternatively, you can install it using **developer mode**.
 
 1. **Download**: Get the extension from the GitHub repository by clicking "Code" and then "Download ZIP".
 
