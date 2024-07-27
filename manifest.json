@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Play All Button",
-  "version": "1.0",
+  "version": "2.0",
   "description": "Play All button on a YouTube channel. Turn the entire channel's video into a playlist.",
   "icons": {
     "16": "images/icon-16.png",
