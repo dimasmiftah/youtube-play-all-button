@@ -9,10 +9,12 @@
     "48": "images/icon-48.png",
     "128": "images/icon-128.png"
   },
+  "permissions": ["activeTab"],
+  "host_permissions": ["https://www.youtube.com/*"],
   "content_scripts": [
     {
       "js": ["scripts/content.js"],
-      "matches": ["https://www.youtube.com/@*"],
+      "matches": ["https://www.youtube.com/*"],
       "run_at": "document_idle"
     }
   ]

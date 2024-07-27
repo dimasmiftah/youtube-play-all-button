@@ -82,8 +82,36 @@ const insertButtonsWithDelay = () => {
   setTimeout(insertButtons, 1000);
 };
 
-// Insert buttons when the content script is initially run
-insertButtonsWithDelay();
+let lastVisitedChannel = '';
 
-// Listen for page navigation events and re-insert buttons when navigation is complete
-window.addEventListener('yt-navigate-finish', insertButtonsWithDelay);
+const checkAndReloadForNewChannel = () => {
+  const currentURL = window.location.href;
+  const channelMatch = currentURL.match(/youtube\.com\/@([^/]+)/);
+
+  if (channelMatch) {
+    const currentChannel = channelMatch[1];
+    if (currentChannel !== lastVisitedChannel) {
+      lastVisitedChannel = currentChannel;
+      if (!sessionStorage.getItem('reloaded')) {
+        sessionStorage.setItem('reloaded', 'true');
+        window.location.reload();
+      } else {
+        sessionStorage.removeItem('reloaded');
+        insertButtonsWithDelay();
+      }
+    }
+  }
+
+  const playlistButton = document.getElementById('goToPlaylistButton');
+  const playAllButton = document.getElementById('playAllButton');
+
+  if (!playAllButton || !playlistButton) {
+    insertButtonsWithDelay();
+  }
+};
+
+// Initial check and insert
+checkAndReloadForNewChannel();
+
+// Listen for page navigation events
+window.addEventListener('yt-navigate-finish', checkAndReloadForNewChannel);
