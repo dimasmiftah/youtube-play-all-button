@@ -67,19 +67,23 @@ const insertButtons = () => {
     playAllButton.remove();
   }
 
-  const otherButtons = document.querySelector('#other-buttons');
+  const subscribeButton = document.querySelector('.yt-flexible-actions-view-model-wiz__action');
 
-  if (otherButtons) {
+  if (subscribeButton) {
     const goToPlaylistButton = addPlaylistButton();
     const playAllButton = addPlayAllButton();
 
-    otherButtons.insertAdjacentElement('afterend', playAllButton);
-    otherButtons.insertAdjacentElement('afterend', goToPlaylistButton);
+    subscribeButton.insertAdjacentElement('afterend', playAllButton);
+    subscribeButton.insertAdjacentElement('afterend', goToPlaylistButton);
   }
 };
 
+const insertButtonsWithDelay = () => {
+  setTimeout(insertButtons, 1000);
+};
+
 // Insert buttons when the content script is initially run
-insertButtons();
+insertButtonsWithDelay();
 
 // Listen for page navigation events and re-insert buttons when navigation is complete
-window.addEventListener('yt-navigate-finish', insertButtons);
+window.addEventListener('yt-navigate-finish', insertButtonsWithDelay);
